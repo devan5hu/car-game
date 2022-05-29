@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React , {useState} from 'react'
+import './App.css'
+import Background from './Game/components/Background';
+import Car from './Game/components/Car';
+import Road from './Game/components/Road';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [startGame, setstartGame] = useState(false)
+  return(
+    <div className='container'>
+      <div className='game-container'>
+        {startGame ? <Background /> : null}
+        <Car startGame={startGame} setstartGame = {setstartGame} />
+        <Road />
+      </div>
     </div>
   );
 }

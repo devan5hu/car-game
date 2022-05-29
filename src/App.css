@@ -1,38 +1,179 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.container{
+  width: 100%;
   min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.game-container{
+  width: 600px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;    
+}
+
+.game-container p{
+  position: absolute;
+  top: 130px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.highScore{
+  position: absolute;
+  top: 130px;
+  left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.game-container button{
+  position: absolute;
+  top: 120px;
+}
+
+.road{
+  width: 600px;
+  height: 1px;
+  background-color: white;
+}
+
+.car img{
+  filter: invert(100%);
+  top: 375px;
+  position: absolute;
+  left: 10px;
+  width: 60px;
+  height: 20px;
+}
+
+.car-jump{
+  animation: jump 0.55s linear 1;
+}
+
+.block{
+  position: absolute;
+  top: 380px;
+  right: 0;
+  height: 15px;
+  width: 10px;
+  display: none;
+  background-color: white;
+  animation: block-animate 1s linear infinite ;
+}
+
+.hi{
+  right:0;
+}
+
+.obstacle2{
+  position: absolute;
+  top: 340px;
+  right: 0;
+  height: 60px;
+  width: 10px;
+  display: none;
+  background-color: white;
+  animation: obstacle2-animate 1s linear infinite ;
+}
+
+@keyframes jump{
+  0%{
+      top: 325px;
   }
-  to {
-    transform: rotate(360deg);
+  30%{
+      top: 285px;
   }
+  70%{
+      top: 285px;
+  }
+  100%{
+      top: 325px;
+      right: 10px;
+  }
+}
+
+@keyframes obstacle2-animate{
+  0%{
+      right: 0;
+  }
+  100%{
+      right: 100%;
+  }
+}
+
+.surround{
+  position: absolute;
+  top: 100px;
+  right: 0;
+}
+
+#cloud1{
+  position: absolute;
+  bottom: 503px;
+  animation: cloud-move1 1.5s linear infinite;
+}
+
+@keyframes cloud-move1{
+  0%{
+      right: 0;
+  }
+  100%{
+      right: 100%;
+  }
+}
+
+.e{
+  position:absolute;
+  margin-top:85px;
+  width:100%;
+  background-color:white;
+}
+@font-face {
+  font-family: 'Glaive';
+  src: url('Game/components/Glaive.ttf');
+}
+.title{
+  position: absolute;
+  font-family: 'Glaive';
+  font-size: 85px;
+  top:0;
+  color: whitesmoke;
+}
+
+.sub{
+  position: absolute;
+  font-family: 'Glaive';
+  font-size: 25px;
+  top: 58px ;
+  left: 80%;
+  color: skyblue;  
+}
+
+
+.start{
+  position: relative;
+  left:0;
+  border: 1.5px solid white;
+  background: transparent;
+  font-size: 140%;
+  padding: 10px 16px;
+  margin-right: 15px;
+  color: white;
+  font-weight: 300;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.start:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }
